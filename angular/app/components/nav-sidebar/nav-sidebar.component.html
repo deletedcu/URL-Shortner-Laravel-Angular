@@ -1,0 +1,44 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="{{vm.userData.avatar}}" class="img-circle" alt="{{vm.userData.name | uppercase}}" onError="this.src='//placeholdit.imgix.net/~text?txtfont=monospace,bold&bg=DD4B39&txtclr=ffffff&txt=' + this.alt + '&w=45&h=45&txtsize=16'">
+      </div>
+      <div class="pull-left info">
+        <p>{{vm.userData.name | capitalize}}</p>
+        <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    <ul class="sidebar-menu">
+      <li class="header">Where am I?</li>
+      <li class="treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-users"></i> <span>Manage</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li ng-show="vm.can('manage.users')" class="active"><a ui-sref='app.userlist'><i class="fa fa-circle-o"></i> <span>Users</span></a></li>
+          <li ng-show="vm.can('manage.urls')" class="active"><a ui-sref='app.urllist'><i class="fa fa-circle-o"></i> <span>Urls</span></a></li>
+        </ul>
+      </li>
+      <li class="treeview" ng-show="vm.can('manage.settings')">
+        <a href="javascript:void(0)">
+          <i class="fa fa-cog"></i> <span>App Settings</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li ng-show="vm.can('manage.settings')"><a ui-sref='app.userroles'><i class="fa fa-circle-o"></i> <span>User Roles</span></a></li>
+          <li ng-show="vm.can('manage.settings')"><a ui-sref='app.userpermissions'><i class="fa fa-circle-o"></i> <span>User Permissions</span></a></li>
+        </ul>
+      </li>
+      <li>
+        <a ui-sref="app.profile">
+          <i class="fa fa-user"></i> <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="app.logout">
+          <i class="fa fa-sign-out"></i> <span>Sign out</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</aside>
